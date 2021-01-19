@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
+    <h1>Todo {{ todo.id }}</h1>
+    <div class="col-6 offset-3">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">{{ todo.name }}</h4>
+            </div>
+            <div class="card-body">
+                <p>Due By {{ todo.due_date }}</p>
+                <a class="btn btn-primary" href="{% url 'todo:index' %}">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
+    <h1>Create A Todo</h1>
+    <div class="mb-3">
+        <a href="{% url 'todo:index' %}" class="btn btn-primary">Go To List</a>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-success">Submit</button>
+    </form>
+</div>
+{% endblock %}

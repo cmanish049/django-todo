@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
+    <h1>Todo List</h1>
+    <div class="mb-3">
+        <a href="{% url 'todo:create' %}" class="btn btn-primary">Create Todo</a>
+    </div>
+    <div class="col-6 offset-3">
+        {% for todo in todos %}
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">
+                    <a href="{% url 'todo:show' todo.id %}">{{ todo.name }}</a>
+                </h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text">its due by {{ todo.due_date }}</p>
+                <a class="card-link text-info" href="{% url 'todo:update' todo.id %}">Edit</a>
+                <a class="card-link text-danger" href=" {% url 'todo:delete' todo.id %}">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
